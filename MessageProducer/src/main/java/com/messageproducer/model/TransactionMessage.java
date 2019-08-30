@@ -7,12 +7,15 @@ import lombok.Data;
 import lombok.Getter;
 
 @Data
-@Getter
 public class TransactionMessage extends Message implements Serializable {
 	private String contactNumber;
-	
-	public TransactionMessage(Long messageId, int messageType, String message, Timestamp timeStamp, String contactNumber) {
-		super(messageId, messageType, message, timeStamp);
-		this.contactNumber=contactNumber;
+	public TransactionMessage(Long messageId, String message, int messageType, Timestamp timeStamp,
+			String contactNumber) {
+		super(messageId, message, messageType, timeStamp);
+		this.contactNumber = contactNumber;
+	}
+	@Override
+	public String toString() {
+		return "TransactionMessage [contactNumber=" + contactNumber + ", Message()=" + super.toString() + "]";
 	}
 }
