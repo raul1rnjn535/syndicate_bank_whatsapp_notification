@@ -2,6 +2,7 @@ package com.messageproducer.model;
 
 import java.sql.Timestamp;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
 public class Message implements java.io.Serializable{
@@ -17,7 +18,12 @@ public class Message implements java.io.Serializable{
 		this.timeStamp = timeStamp;
 	}
 	
+	public Long getMessageId() {
+		return this.messageId;
+	}
 	
+	public String getMessage() {
+		return this.message;
+	}
 	
-
 }

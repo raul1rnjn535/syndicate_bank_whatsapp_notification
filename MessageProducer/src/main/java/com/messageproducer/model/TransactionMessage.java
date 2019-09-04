@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 @Data
 public class TransactionMessage extends Message implements Serializable {
@@ -17,5 +18,8 @@ public class TransactionMessage extends Message implements Serializable {
 	@Override
 	public String toString() {
 		return "TransactionMessage [contactNumber=" + contactNumber + ", Message()=" + super.toString() + "]";
+	}
+	public String getContactNumber() {
+		return this.contactNumber;
 	}
 }

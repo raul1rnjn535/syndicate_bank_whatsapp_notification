@@ -29,12 +29,14 @@ public class PostMessageController {
 	private static Long id=(long) 1;	
 	
 	
-	@PostMapping("/send/mType/{mType}/contactNum/{contactNum}")
-	void PostTransactionMessage(@RequestBody String message, @PathVariable int mType, @PathVariable String contactNum) {
+	@GetMapping("/send/mType/{mType}/contactNum/{contactNum}/message/{message}")
+	@ResponseBody
+	void PostTransactionMessage(@PathVariable int mType, @PathVariable String contactNum, @PathVariable String message) {
 		try {
 			Date date= new Date();
+			System.out.println(message);
 			Timestamp timeStamp = new Timestamp(date.getTime());
-			TransactionMessage transactionMsg = new TransactionMessage(id++, mType, message, timeStamp, contactNum);
+			TransactionMessage transactionMsg = new TransactionMessage(id++, message, mType, timeStamp, contactNum);
 			ProduceMessage producer = new ProduceMessage(activeMQConnectionFactory);
 			producer.publishMessage(transactionMsg);
 		} catch(JMSException ex) {
