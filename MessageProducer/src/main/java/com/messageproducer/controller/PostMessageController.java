@@ -8,6 +8,7 @@ import javax.jms.JMSException;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.messageproducer.model.TransactionMessage;
 import com.messageproducer.producer.ProduceMessage;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/gateway/publish")
 @Component
